@@ -6,7 +6,8 @@ This project converts money between different currencies.
 
 First clone or download the project.
 Open a console on the folder where the project is and type "npm install"
-Then you can go to the bin folder and type " node index.js XXX YYY ZZZ"
+Then you can go to the bin folder and type 
+❯ node index.js XXX YYY ZZZ
 Where XXX is the value you want to convert, YYY the initial currency and ZZZ the currency you wish.
 For currency names :
 
