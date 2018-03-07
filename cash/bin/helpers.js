@@ -60,7 +60,6 @@ Examples:
 const helpers = argv => {
   // Version
   if (argv.indexOf('--version') !== - 1 || argv.indexOf('-v') !== - 1) {
-      console.log("This is version");
     version();
   }
 

@@ -2,17 +2,49 @@
 
 This project converts money between different currencies.
 
+
+### Prerequisites
+
+For this to work you need to install nodeJS
+
+
+
 ## Getting Started
 
 First clone or download the project.
 Open a console on the folder where the project is and type "npm install"
-Then you can go to the bin folder and type 
+Then you can go to the bin folder and type :
 ```
 node index.js XXX YYY ZZZ
 ```
 Where XXX is the value you want to convert, YYY the initial currency and ZZZ the currency you wish.
 
-For currency names :
+## Helpers 
+
+
+Version :
+
+```
+node index.js --version
+```
+
+Help :
+
+```
+node index.js --help
+node index.js --h
+```
+
+Save : 
+
+```
+node index.js --save
+node index.js --s
+```
+
+
+
+## Currencies supported
 
 AUD: Australian Dollar
 
@@ -80,9 +112,7 @@ NZD: New Zealand Dollar
 
 
 
-### Prerequisites
 
-For this to work you need to install nodeJS
 
 ## License
 
