@@ -7,6 +7,10 @@ const currencies = require('../lib/currencies.json');
 
 const API = 'https://api.fixer.io/latest';
 
+/**
+ * This function does the conversion and checks if the curency is supported
+ */
+
 const convert = configuration => {
   const {amount, to, from, response, loading} = configuration;
 
@@ -33,6 +37,10 @@ const convert = configuration => {
   );
   process.exit(1);
 };
+
+/**
+ * This function asynchronously works on the display
+ */
 
 const cash = async command => {
   const amount = command.amount;
