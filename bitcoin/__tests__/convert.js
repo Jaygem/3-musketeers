@@ -13,7 +13,7 @@ test('should return a Number', () => {
 });
 
 test('should return a Big number', () => {
-  expect(convert(2, 'BTC', 'BTC', 'Big')).toBe(Big(2));
+  expect(convert(2, 'BTC', 'BTC', 'Big')).toEqual(Big("2"));
 });
 
 test('should return a String', () => {
@@ -39,44 +39,49 @@ test('should convert a Big number', () => {
 });
 
 test('should convert a NaN to a Number', () => {
-  //convert(NaN, 'BTC', 'BTC', 'Number');
-  //convert(NaN, 'BTC', 'mBTC', 'Number');
-  throw new Error('test not yet defined... write your test here');
+  expect(convert(NaN, 'BTC', 'BTC', 'Number')).toBe(Number(NaN));
+  expect(convert(NaN, 'BTC', 'mBTC', 'Number')).toBe(Number(NaN));
 });
 
 test('should convert a NaN to a String', () => {
-  //convert(NaN, 'BTC', 'BTC', 'String');
-  //convert(NaN, 'BTC', 'mBTC', 'String');
-  throw new Error('test not yet defined... write your test here');
+  expect(convert(NaN, 'BTC', 'BTC', 'String')).toBe('NaN');
+  expect(convert(NaN, 'BTC', 'mBTC', 'String')).toBe('NaN');
 });
 
 test('should not convert a NaN to a Big', () => {
-  //convert(NaN, 'BTC', 'BTC', 'Big');
-  throw new Error('test not yet defined... write your test here');
+  expect(() => {convert(NaN, 'BTC', 'BTC', 'Big');}).toThrow();
 });
 
 test('should handle rounding errors', () => {
-  //convert(4.6, 'Satoshi', 'BTC', 'Number');
-  //convert(0.000000046, 'BTC', 'Satoshi', 'Number');
-  throw new Error('test not yet defined... write your test here');
+  expect(convert(4.6, 'Satoshi', 'BTC', 'Number')).toBe(0.000000046);
+  expect(convert(0.000000046, 'BTC', 'Satoshi', 'Number')).toBe(4.6);
 });
 
 test('should throw when untest is undefined', () => {
-  //convert(new Big(2), 'x', 'BTC', 'Number');
-  //convert(new Big(2), 'BTC', 'x', 'Number');
-  //convert(NaN, 'x', 'BTC', 'Number');
-  //convert(NaN, 'BTC', 'x', 'Number');
-  throw new Error('test not yet defined... write your test here');
+  expect(() => {convert(new Big(2), 'x', 'BTC', 'Number');}).toThrow();
+  expect(() => {convert(new Big(2), 'BTC', 'x', 'Number');}).toThrow();
+  expect(() => {convert(NaN, 'x', 'BTC', 'Number');}).toThrow();
+  expect(() => {convert(NaN, 'BTC', 'x', 'Number');}).toThrow();
+ 
 });
 
 test('should throw when representaion is undefined', () => {
-  //convert(2, 'BTC', 'mBTC', 'x');
-  //convert(NaN, 'BTC', 'mBTC', 'x');
-  throw new Error('test not yet defined... write your test here');
+  expect(() => {convert(2, 'BTC', 'mBTC', 'x');}).toThrow();
+  expect(() => {convert(NaN, 'BTC', 'mBTC', 'x');}).toThrow();
+  
 });
 
 test('should allow untest aliases', () => {
-  //convert(4.6, 'Satoshi', 'sat');
-  //convert(4.6, 'μBTC', 'btest');
-  throw new Error('test not yet defined... write your test here');
+ expect(convert(4.6, 'Satoshi', 'sat')).toBe(4.6);
+ expect(() => {convert(4.6, 'μBTC', 'btest');}).toThrow();
+
+});
+
+test('Should add new unit', ()=> {
+    expect(() => {convert.addUnit('sat',0.001);}).toThrow();
+    expect(convert.addUnit('btest',1)).toBe();
+});
+test('Should add new unit', ()=> {
+    expect(() => {convert.removeUnit('sat');}).toThrow();
+    expect(convert.removeUnit('btest')).toBe();
 });
